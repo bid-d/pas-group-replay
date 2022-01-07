@@ -79,12 +79,14 @@ bin/magento config:set web/unsecure/base_url https://pas-replay.local/
 
 bin/magento config:set web/secure/base_link_url https://pas-replay.local/
 
-# Setup elasticsearch
-bin/magento config:set catalog/search/engine 'elasticsearch7'
+# Setup ElasticSuite to be compatible with Elasticsearch
+bin/magento config:set catalog/search/engine 'elasticsuite'
 
 bin/magento config:set catalog/search/elasticsearch7_server_hostname 'elasticsearch'
 
 bin/magento config:set catalog/search/elasticsearch7_server_port '9200'
+
+bin/magento config:set -le smile_elasticsuite_core_base_settings/es_client/servers elasticsearch:9200
 	
 bin/restart
 
